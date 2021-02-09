@@ -2,30 +2,30 @@ import { Injectable } from '@nestjs/common'
 import { Livro } from './livro.model'
 
 @Injectable()
-export class LivrossServices {
-  produtos: Livro[] = [
+export class LivrosServices {
+  livros: Livro[] = [
     new Livro('LIV01', 'Livro de Java', 29.0),
     new Livro('LIV02', 'Livro de Javascript', 29.0),
     new Livro('LIV03', 'Livro de Python', 29.0)
   ]
 
   obterTodos(): Livro[] {
-    return this.produtos
+    return this.livros
   }
 
   obterUm(id: number): Livro {
-    return this.produtos[0]
+    return this.livros[0]
   }
 
-  criar(produto: Livro) {
-    this.produtos.push(produto)
+  criar(livro: Livro) {
+    this.livros.push(livro)
   }
 
-  alterar(produto: Livro): Livro {
-    return produto
+  alterar(livro: Livro): Livro {
+    return livro
   }
 
   apagar(id: number) {
-    this.produtos.pop()
+    this.livros.pop()
   }
 }
