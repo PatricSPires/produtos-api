@@ -1,28 +1,28 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
-import { Produto } from './produto.model'
-import { ProdutosServices } from './produtos.service'
+import { Livro } from './livro.model'
+import { LivrossServices } from './livro.service'
 
 @Controller('produtos')
 export class ProdutosController {
-  constructor(private produtoService: ProdutosServices) {}
+  constructor(private produtoService: LivrossServices) {}
 
   @Get()
-  obterTodos(): Produto[] {
+  obterTodos(): Livro[] {
     return this.produtoService.obterTodos()
   }
 
   @Get(':id')
-  obterUm(@Param() params): Produto {
+  obterUm(@Param() params): Livro {
     return this.produtoService.obterUm(params.id)
   }
 
   @Post()
-  criar(@Body() produto: Produto) {
+  criar(@Body() produto: Livro) {
     this.produtoService.criar(produto)
   }
 
   @Put()
-  atualizar(@Body() produto: Produto): Produto {
+  atualizar(@Body() produto: Livro): Livro {
     return this.produtoService.alterar(produto)
   }
 
